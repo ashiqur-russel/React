@@ -1,17 +1,42 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+//CSS
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+// Nested components, React Tools
+function BookList(){
+  return (
+    <section className='booklist'>
+      <Book />
+      <Book />
+      <Book />
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+      <Book />
+      <Book />
+      <Book />
+      <Book />
+
+      <Book />
+      <Book />
+      <Book />
+
+
+    </section>
+  );
+}
+
+const Book = () => {
+  return <article className='book'>
+    <Image />
+    <Title />
+    <Author />
+  </article>;
+}
+
+const Image =()=> <img className="cen" src="https://images-na.ssl-images-amazon.com/images/I/51MB5SD5GIL._AC_SX368_.jpg" alt="Check Image Link"></img>;
+const Title =() => <h1>Little Blue Truck's Halloween</h1>;
+const Author =() => <p>Jill McElmurry</p>;
+
+
+ReactDOM.render(<BookList/>, document.getElementById('root'));
