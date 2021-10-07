@@ -5,16 +5,28 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 //Set variable
-const title    = "Little Blue Truck's Halloween";
-const author  = "Jill McElmurry";
-const img= "https://images-na.ssl-images-amazon.com/images/I/51MB5SD5GIL._AC_SX368_.jpg";
+
+const firstBook = {
+  img : "https://images-na.ssl-images-amazon.com/images/I/A1mGYasTtES._AC_UL200_SR200,200_.jpg",
+  title : "The Bad Seed Presents: The Good, the Bad, and the Spooky",
+  author : "Pete Oswald"
+}
+
+const secondBook = {
+  img : "https://images-na.ssl-images-amazon.com/images/I/41sWAELGloL._AC_UL200_SR200,200_.jpg",
+  title : "Room on the Broom",
+  author : "Julia Donaldson"
+}
+
 
 // Nested components, React Tools
 function BookList(){
   return (
     <section className='booklist'>
-      <Book job ='Developer' genere = "anime"/>
-      <Book job = "Artist" number = {22}/>
+      <Book img ={firstBook.img} title={firstBook.title} author={firstBook.author}/>
+
+      <Book img ={secondBook.img} title={secondBook.title} author={secondBook.author}/>
+    
     </section>
   );
 }
@@ -22,12 +34,9 @@ function BookList(){
 // Book component
 const Book = (props) => {
   return <article className='book'>
-    <img  src={img} alt=""></img>
-    <h1>{title}</h1>
-    <h4>{author}</h4>
-    <p>{props.job}</p>
-    <p>{props.genere}</p>
-    <p>{props.number}</p>
+    <img  src={props.img} alt=""></img>
+    <h1>{props.title}</h1>
+    <h4>{props.author}</h4>
   </article>;
 }
 
