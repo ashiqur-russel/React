@@ -1,19 +1,29 @@
 import React,{ Component } from "react";
 import { Card, CardImg, CardText, CardBody,CardTitle } from 'reactstrap';
+import { DISHES } from "../shared/dishes";
 
 
 
 class DishDetail extends Component{  
+
+
+    constructor(props){
+        super(props);
+
+        this.state = {
+            selectedDish :DISHES
+    }
+}
 
 renderDish(dish){
         
                 return(
                     <div className="col-md-6">
                         <Card>
-                            <CardImg src={this.props.dish.image} alt={this.props.dish.name} />
+                            <CardImg src={dish.image} alt={dish.name} />
                             <CardBody>
-                                <CardTitle>{this.props.dish.name}</CardTitle>
-                                <CardText>{this.props.dish.description}</CardText>
+                                <CardTitle>{dish.name}</CardTitle>
+                                <CardText>{dish.description}</CardText>
                             </CardBody>
                         </Card> 
                     </div>
@@ -39,12 +49,12 @@ renderDish(dish){
                 </div>
             );
         }else{
-            return (<div></div>);
+            return (<div><h4>Hello RenderComments</h4></div>);
         }
 
     }
         render(){
-            if(this.props.cloth !=null){
+            if(this.dish !=null){
                     return(
                         <div className="row">
                             {this.renderDish(this.props.dish)}
@@ -53,7 +63,7 @@ renderDish(dish){
             );
                 }
                 else{
-                    return(<div></div>);
+                    return(<div><h4>Hello Main render </h4></div>);
                 }
         } 
 

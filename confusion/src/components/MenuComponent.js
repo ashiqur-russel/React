@@ -21,27 +21,29 @@ class Menu extends Component{
     render(){
             
         const menu=this.props.dishes.map((dish)=>{
-            return(
-                <div key={dish.id} className="col-xs-6">
-                    <Card onClick = {()=> this.onDishSelect(dish)}>
+            return (
+                <div key = {dish.id} className="col-xs-6">
+                    <Card 
+                    onClick = {()=> this.onDishSelect(dish)} >
                             <CardImg src={dish.image} alt={dish.name} />
                             <CardImgOverlay>
                                 <CardTitle>{dish.name}</CardTitle>
                             </CardImgOverlay>
                     </Card>
                 </div>
-            )
-        });
+            );
+        })
         return (
-            <div className="comtainer">
+            <div className="container">
                 <div className="row">
                         {menu}
                     
                 </div>
 
                 <div className ="row">
-                    <DishDetail dish ={(this.state.selectedDish)}/>
-                </div>
+                    {this.state.selectedDish}
+                  <DishDetail />
+                 </div>
             </div>
         );
     }
