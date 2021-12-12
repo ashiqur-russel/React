@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+
 //CSS
 import './index.css';
 
@@ -23,21 +24,25 @@ const secondBook = {
 function BookList(){
   return (
     <section className='booklist'>
-      <Book img ={firstBook.img} title={firstBook.title} author={firstBook.author}/>
-
-      <Book img ={secondBook.img} title={secondBook.title} author={secondBook.author}/>
-    
+      <Book img ={firstBook.img} title={firstBook.title} author={firstBook.author}> 
+      <p>Lorem ipsum dolor sit amet, aboris sint cupidatat ullamco ut ea consectetur et est culpa et
+      culpa duis.</p>
+      </Book>     
+      
+      <Book img ={secondBook.img} title={secondBook.title} author={secondBook.author}/>   
     </section>
   );
 }
 
-// Book component
-const Book = (props) => {
-  return <article className='book'>
-    <img  src={props.img} alt=""></img>
-    <h1>{props.title}</h1>
-    <h4>{props.author}</h4>
-  </article>;
+// Book component s
+const Book = ({img,title,author,children}) => {
+return ( 
+    <article className='book'>
+      <img  src={img} alt=""></img>
+      <h1>{title}</h1>
+      <h4>{author}</h4>
+      {children}
+    </article>);
 }
 
 ReactDOM.render(<BookList/>, document.getElementById('root'));
