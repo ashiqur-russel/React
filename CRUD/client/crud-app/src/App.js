@@ -29,8 +29,13 @@ function App() {
 
       //Delete
  
-      const deleteName = ()=>{
-        Axios.delete('http://localhost:3001/api/delete/${movie}');
+      const deleteName = (id)=>{
+        Axios.delete(`http://localhost:3001/api/delete/${id}`).then((res)=>{
+        });
+     
+
+        
+    
       }
 
   return (
@@ -53,10 +58,10 @@ function App() {
           {
           list.map((data,index)=>{
             return(
-              <div className="card" key={data.id}>
+              <div className="card" key={index}>
                     <h3>{data.name} </h3>           
                     <p>{data.review}</p>
-                    <button id="btn" onClick={()=>{deleteName(data.name)}}>Remove</button>
+                    <button id="btn" onClick={()=>{deleteName(data.id)}}>Remove</button>
                     <button id="btn">Update</button>
               </div>
             )
