@@ -1,28 +1,23 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 
-class Home extends Component {
-    // eslint-disable-next-line no-useless-constructor
-    constructor() {
-        super();
-        this.state = {
-            data: 1
-        }
-    }
-
-    updateData() {
-        this.setState({ data: this.state.data + 1 })
-        console.log("hello")
-    }
-
-    render() {
-        return (
-            <div>
-                <h1>Home</h1>
-                <p>{this.state.data}</p>
-                <button onClick={() => this.updateData()}>Update Data</button>
-            </div>
-        )
-    }
+const Home = () => {
+    const [blogs, setBlogs] = useState(
+        [
+            { title: 'My new website', body: 'lorem ipsum...', author: 'mario', id: 1 },
+            { title: 'Welcome party!', body: 'lorem ipsum...', author: 'yoshi', id: 2 },
+            { title: 'Web dev top tips', body: 'lorem ipsum...', author: 'mario', id: 3 }
+        ]
+    )
+    return (
+        <div className="home">
+            {blogs.map(blog => (
+                <div className="blog-preview" key={blog.id} >
+                    <h2>{blog.title}</h2>
+                    <p>Written by {blog.author}</p>
+                </div>
+            ))}
+        </div>
+    )
 }
 
 export default Home
